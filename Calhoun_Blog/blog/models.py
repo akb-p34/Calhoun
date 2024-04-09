@@ -7,6 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     published_date = models.DateTimeField(auto_now_add=True)
     # Optional: add more fields as needed, such as `categories` or `tags`
+    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
